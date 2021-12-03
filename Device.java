@@ -1,8 +1,8 @@
 import java.util.Random;
 
 public class Device extends Thread{
-    String name;
-    String type;
+    public String name;
+    public String type;
     Router connectRouter;
     Device(String a,String b, Router r){
         name = a;
@@ -12,7 +12,7 @@ public class Device extends Thread{
     public void run(){
         Random r = new Random();
         connectRouter.connect(this);
-        connectRouter.action(r.nextInt(3000));
+        connectRouter.action(r.nextInt(2));
         connectRouter.disconnect(this);
     }
 }
