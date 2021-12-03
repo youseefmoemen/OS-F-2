@@ -11,12 +11,12 @@ public class Router{
     Semaphore valid = new Semaphore(size);
     Semaphore connected = new Semaphore(0);
     public void connect(Device d) {
-        valid.P();
+        valid.P(d);
         devices.add(d);
         connected.V();
     }
     public void disconnect(Device d) {
-        connected.P();
+        connected.P(d);
         devices.remove(d);
         valid.V();
     }

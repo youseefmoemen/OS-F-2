@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Device extends Thread{
     String name;
     String type;
@@ -8,9 +10,9 @@ public class Device extends Thread{
         connectRouter = r;
     }
     public void run(){
+        Random r = new Random();
         connectRouter.connect(this);
-        connectRouter.action(10);
+        connectRouter.action(r.nextInt(3000));
         connectRouter.disconnect(this);
-
     }
 }
