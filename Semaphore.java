@@ -9,30 +9,33 @@ public class Semaphore {
     }
 
     public synchronized void P(Device d, boolean connect) { // Wait
-        if (connect) {
-            value--;
-            if (value < 0) {
+        value--;
+        if (value < 0) {
+            try {
                 try {
-                    try {
+                    if (connect) {
                         FileWriter out = new FileWriter("out.text", true);
                         out.write(d.name + " " + d.type + " Arrived and waiting\n");
                         out.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
                     }
-                    wait();
-                } catch (InterruptedException e) {
-                }
-            } else {
-                try {
-                    FileWriter out = new FileWriter("out.text", true);
-                    out.write(d.name + " " + d.type + " Arrived\n");
-                    out.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                wait();
+            } catch (InterruptedException e) {
+            }
+        } else {
+            try {
+                if (connect) {
+                    FileWriter out = new FileWriter("out.text", true);
+                    out.write(d.name + " " + d.type + " Arrived\n");
+                    out.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
+
     }
 
     public synchronized void V() { // Signal
