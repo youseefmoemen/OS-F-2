@@ -12,7 +12,7 @@ public class Device extends Thread{
     public void run(){
         Random r = new Random();
         connectRouter.connect(this);
-        connectRouter.action(r.nextInt(2));
+        connectRouter.action(r.nextInt(30), this);
         connectRouter.disconnect(this);
     }
 }
