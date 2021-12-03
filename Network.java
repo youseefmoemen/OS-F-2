@@ -10,6 +10,7 @@ public class Network {
         b = s.nextInt();
         Router router = new Router(a);
         String q, w;
+        System.out.println("SS: "+router.size);
         for (int i = 0; i < b; i++) {
             q = s.nextLine();
             w = s.nextLine();

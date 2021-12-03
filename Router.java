@@ -4,12 +4,14 @@ import java.util.concurrent.TimeUnit;
 public class Router{
     int size;
     Vector<Device> devices;
+    Semaphore connected;
+    Semaphore valid;
     Router(int init){
         size = init;
         devices = new Vector<Device>(size);
+        valid = new Semaphore(size);
+        connected = new Semaphore(0);
     }
-    Semaphore valid = new Semaphore(size);
-    Semaphore connected = new Semaphore(0);
     public void connect(Device d) {
         valid.P(d);
         devices.add(d);

@@ -1,8 +1,8 @@
 public class Semaphore{
-    int value = 0;
-    Semaphore(){value = 0;}
+    private int value;
     Semaphore(int init){value = init;}
     public synchronized void P(Device d){ //Wait
+        System.out.println("ZZ "+value);
         value--;
         if(value < 0){
             try{
