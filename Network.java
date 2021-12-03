@@ -9,8 +9,12 @@ public class Network {
         System.out.println("What is the number of Client Devices");
         b = s.nextInt();
         Router router = new Router(a);
-        for(int i = 0; i < b; i++){
-            
+        String q, w;
+        for (int i = 0; i < b; i++) {
+            q = s.nextLine();
+            w = s.nextLine();
+            Device d = new Device(q, w, router);
+            d.start();
         }
         s.close();
     }
