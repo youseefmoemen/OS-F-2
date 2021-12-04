@@ -11,18 +11,21 @@ public class Semaphore {
     public synchronized void P(Device d, boolean connect) { // Wait
         value--;
         if (value < 0) {
-            try {
+            if (connect && !d.name.equals("-1")) {
                 try {
-                    if (connect) {
-                        FileWriter out = new FileWriter("out.text", true);
-                        out.write(d.name + " " + d.type + " Arrived and waiting\n");
-                        out.close();
-                    }
+                    FileWriter out = new FileWriter("out.text", true);
+                    out.write(d.name + " " + d.type + " Arrived and waiting\n");
+                    out.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                wait();
-            } catch (InterruptedException e) {
+                try {
+                    System.out.println("Waiting " + d.name);
+                    wait();
+                    System.out.println("Notified " + d.name);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         } else {
             try {
