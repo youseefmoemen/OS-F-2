@@ -36,7 +36,6 @@ public class Semaphore {
                 e.printStackTrace();
             }
         }
-
     }
 
     public synchronized void V() { // Signal

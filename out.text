@@ -1,16 +1,12 @@
 c1 pc Arrived
 Connection 0: c1 Occupied
-Connection 0: c1 perform online action takes 26 seconds
-c2 pc Arrived
-Connection 1: c2 Occupied
-Connection 1: c2 perform online action takes 4 seconds
-c3 pc Arrived and waiting
+Connection 0: c1 perform online action takes 16 seconds
+c2 pc Arrived and waiting
 c4 pc Arrived and waiting
-Connection 1: c2 logged out
-Connection 1: c3 Occupied
-Connection 1: c3 perform online action takes 18 seconds
-Connection 1: c3 logged out
-Connection 1: c4 Occupied
-Connection 1: c4 perform online action takes 24 seconds
 Connection 0: c1 logged out
-Connection 1: c4 logged out
+Connection 0: c2 Occupied
+Connection 0: c2 perform online action takes 7 seconds
+Connection 0: c2 logged out
+Connection 0: c4 Occupied
+Connection 0: c4 perform online action takes 17 seconds
+Connection 0: c4 logged out

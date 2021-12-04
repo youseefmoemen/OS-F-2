@@ -2,6 +2,9 @@ import java.util.Scanner;
 
 public class Network {
     public static void main(String[] args) {
+        //TODO loging and Occuiped 
+        //TODO Show the TA
+        //TODO GUI
         int a, b;
         System.out.println("What is the number of WI-FI Connections");
         Scanner s = new Scanner(System.in);
