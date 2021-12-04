@@ -20,9 +20,7 @@ public class Semaphore {
                     e.printStackTrace();
                 }
                 try {
-                    System.out.println("Waiting " + d.name);
                     wait();
-                    System.out.println("Notified " + d.name);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -43,7 +41,7 @@ public class Semaphore {
 
     public synchronized void V() { // Signal
         value++;
-        if (value >= 0)
+        if (value <= 0)
             notify();
     }
 }
