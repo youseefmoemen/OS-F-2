@@ -1,10 +1,10 @@
 import java.util.Scanner;
+import java.util.Vector;
+
 
 public class Network {
     public static void main(String[] args) {
-        //TODO loging and Occuiped 
-        //TODO Show the TA
-        //TODO GUI
+
         int a, b;
         System.out.println("What is the number of WI-FI Connections");
         Scanner s = new Scanner(System.in);
@@ -13,11 +13,15 @@ public class Network {
         b = s.nextInt();
         Router router = new Router(a);
         String q, w;
+        Vector<Device> vDevices = new Vector<>();
         for (int i = 0; i < b; i++) {
             q = s.next();
             w = s.next();
             Device d = new Device(q, w, router);
-            d.start();
+            vDevices.add(d);
+        }
+        for(int i = 0; i < b; i++){
+            vDevices.get(i).start();
         }
         s.close();
     }

@@ -36,6 +36,22 @@ public class Router{
         }
         connected.V();
     }
+    public void login(Device d){
+        int hold = -1;
+        for(int i = 0; i < size; i++){
+            if(devices[i].equals(d)){
+                hold = i;
+                break;
+            }
+        }
+        try {
+            FileWriter out = new FileWriter("out.text", true);
+            out.write("Connection " + hold + ": " + d.name + " login\n");
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void disconnect(Device d) {
         connected.P(d, false);
         int hold = -1;
