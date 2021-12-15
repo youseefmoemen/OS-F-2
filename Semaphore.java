@@ -1,46 +1,46 @@
-import java.io.FileWriter;
-import java.io.IOException;
+// import java.io.FileWriter;
+// import java.io.IOException;
 
-public class Semaphore {
-    private int value;
+// public class Semaphore {
+//     private int value;
 
-    Semaphore(int init) {
-        value = init;
-    }
+//     Semaphore(int init) {
+//         value = init;
+//     }
 
-    public synchronized void P(Device d, boolean connect) { // Wait
-        value--;
-        if (value < 0) {
-            if (connect && !d.name.equals("-1")) {
-                try {
-                    FileWriter out = new FileWriter("out.text", true);
-                    out.write(d.name + " " + d.type + " Arrived and waiting\n");
-                    out.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        } else {
-            try {
-                if (connect) {
-                    FileWriter out = new FileWriter("out.text", true);
-                    out.write(d.name + " " + d.type + " Arrived\n");
-                    out.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+//     public synchronized void P(Device d, boolean connect) { // Wait
+//         value--;
+//         if (value < 0) {
+//             if (connect && !d.name.equals("-1")) {
+//                 try {
+//                     FileWriter out = new FileWriter("out.text", true);
+//                     out.write(d.name + " " + d.type + " Arrived and waiting\n");
+//                     out.close();
+//                 } catch (IOException e) {
+//                     e.printStackTrace();
+//                 }
+//                 try {
+//                     wait();
+//                 } catch (InterruptedException e) {
+//                     e.printStackTrace();
+//                 }
+//             }
+//         } else {
+//             try {
+//                 if (connect) {
+//                     FileWriter out = new FileWriter("out.text", true);
+//                     out.write(d.name + " " + d.type + " Arrived\n");
+//                     out.close();
+//                 }
+//             } catch (IOException e) {
+//                 e.printStackTrace();
+//             }
+//         }
+//     }
 
-    public synchronized void V() { // Signal
-        value++;
-        if (value <= 0)
-            notify();
-    }
-}
+//     public synchronized void V() { // Signal
+//         value++;
+//         if (value <= 0)
+//             notify();
+//     }
+// }
